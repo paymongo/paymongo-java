@@ -1,5 +1,5 @@
 # PayMongo Java Library
-PayMongo Java library provides ruby applications an easy access to the PayMongo API. Explore various classes that can represent API resources on object instantiation. The goal of this library is simplify PayMongo integration with any ruby application.
+PayMongo Java library provides java applications an easy access to the PayMongo API. Explore various classes that can represent API resources on object instantiation. The goal of this library is simplify PayMongo integration with any java application.
 
 ## Pending TODOs
 
