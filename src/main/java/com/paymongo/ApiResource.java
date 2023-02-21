@@ -8,8 +8,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class ApiResource {
 
-  public Object data;
   public Object attributes;
+  public Object data;
   public String id;
   public boolean has_more;
 
