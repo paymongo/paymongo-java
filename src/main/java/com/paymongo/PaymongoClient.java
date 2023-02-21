@@ -1,5 +1,7 @@
 package main.java.com.paymongo;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -11,33 +13,48 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpRequest.BodyPublishers;
 import java.util.Base64;
+import java.util.Map;
 
 /**
  * PaymongoClient
  */
 public class PaymongoClient {
-  public static ApiResource execute_request(String method, String payload, String path)
+  public static ApiResource execute_request(String method, Object payload, String path)
       throws URISyntaxException, IOException, InterruptedException {
 
     String URI = String.format("%s/%s/%s", Paymongo.API_BASE_URL, Paymongo.API_VERSION, path);
 
     HttpClient client = HttpClient.newHttpClient();
     HttpRequest request = build_request(method, payload, URI);
-    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+    HttpResponse<String> http_response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-    // parse JSON
+    // Parse JSON
     ObjectMapper mapper = new ObjectMapper();
     mapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
-    ApiResource mapped_response = mapper.readValue(response.body(), ApiResource.class);
+    // Format JSON to Java Object
+    Map<String, Object> formatted_response = mapper.readValue(http_response.body(),
+        new TypeReference<Map<String, Object>>() {
+        });
+    ApiResource response = new ApiResource((Map<String, Object>) formatted_response);
 
-    return mapped_response;
+    return response;
   }
 
-  private static HttpRequest build_request(String method, String params, String uri) throws URISyntaxException {
+  private static HttpRequest build_request(String method, Object params, String uri) throws URISyntaxException {
     // By default HttpRequest request method is GET
     HttpRequest.Builder requestBuilder = HttpRequest.newBuilder()
         .uri(new URI(uri))
         .headers("Authorization", getBasicAuthenticationHeader(Paymongo.api_key));
+
+    // Format params as string
+    if (params != null) {
+      ObjectMapper mapper = new ObjectMapper();
+      try {
+        params = mapper.writeValueAsString(params);
+      } catch (JsonProcessingException e) {
+        System.out.println(e.getMessage());
+      }
+    }
 
     switch (method) {
       case "POST":

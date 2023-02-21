@@ -13,14 +13,12 @@ public class ApiResource {
   public String id;
   public boolean has_more;
 
-  @JsonProperty("data")
-  private void unpackNested(Map<String, Object> data) {
-    this.data = data;
+  public ApiResource(Map<String, Object> response) {
+    this.data = (Map<String, Object>) response.get("data");
 
-    if (data.containsKey("attributes")) {
-      this.id = (String) data.get("id");
-      Map<String, Object> attributes = (Map<String, Object>) data.get("attributes");
-      this.attributes = attributes;
+    if (((Map<String, Object>) data).containsKey("attributes")) {
+      this.attributes = ((Map<String, Object>) data).get("attributes");
+      this.id = (String) ((Map<String, String>) data).get("id");
     }
   }
 }

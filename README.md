@@ -38,24 +38,31 @@ value:
 PaymongoExample.java
 
 ```java
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import main.java.com.paymongo.Paymongo;
 import main.java.com.paymongo.services.PaymentIntent;
 
 public class PaymongoExample {
   public static void main(String[] args) {
-
     // Set api key config
     Paymongo.api_key = "sk_...";
 
     // Payment Intent
-    var payment_intent =  PaymentIntent.retrieve("pi_...");
+    var payment_intent = PaymentIntent.retrieve("pi_...");
 
     // Retrieve attributes
     System.out.println(payment_intent.id);
-    => "pi_..."
 
-    String params = "{\"amount\":10000, \"currency\":\"PHP\",\"description\":\"Dog Treat\", \"payment_method_allowed\":[ \"gcash\"]}";
+    // Create Payment Intent
+    Map<String, Object> params = new HashMap<>();
+    params.put("amount", 10000);
+    params.put("currency", "PHP");
+    params.put("description", "Dog Treat");
+    params.put("payment_method_allowed", Arrays.asList("gcash"));
+
     PaymentIntent.create(params);
   }
 }

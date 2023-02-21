@@ -1,9 +1,7 @@
 package main.java.com.paymongo.entities;
 
 import java.util.Map;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PaymentIntentEntity {
@@ -27,8 +25,10 @@ public class PaymentIntentEntity {
 	public int created_at;
 	public int updated_at;
 
-	@JsonProperty("attributes")
-	private void unpackNested(Map<String, Object> attributes) {
+	public PaymentIntentEntity(Map<String, Object> data) {
+		var attributes = (Map<String, Object>) data.get("attributes");
+
+		this.id = (String) data.get("id");
 		this.amount = (int) attributes.get("amount");
 		this.capture_type = (String) attributes.get("capture_type");
 		this.client_key = (String) attributes.get("client_key");

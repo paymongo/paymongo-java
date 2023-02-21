@@ -6,7 +6,7 @@ public class PaymentIntent extends BaseService {
 
   public static final String URI = "payment_intents";
 
-  public static PaymentIntentEntity create(String payload) {
+  public static PaymentIntentEntity create(Object payload) {
     return (PaymentIntentEntity) request(
         "PaymentIntentEntity",
         "POST",
