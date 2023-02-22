@@ -1,8 +1,6 @@
 package main.java.com.paymongo;
 
 import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * ApiResource
  */
