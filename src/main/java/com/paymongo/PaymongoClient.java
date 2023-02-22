@@ -21,7 +21,6 @@ import java.util.Map;
 public class PaymongoClient {
   public static ApiResource execute_request(String method, Object payload, String path)
       throws URISyntaxException, IOException, InterruptedException {
-
     String URI = String.format("%s/%s/%s", Paymongo.API_BASE_URL, Paymongo.API_VERSION, path);
 
     HttpClient client = HttpClient.newHttpClient();
@@ -32,9 +31,11 @@ public class PaymongoClient {
     ObjectMapper mapper = new ObjectMapper();
     mapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
     // Format JSON to Java Object
-    Map<String, Object> formatted_response = mapper.readValue(http_response.body(),
-        new TypeReference<Map<String, Object>>() {
-        });
+    Map<String, Object> formatted_response = mapper.readValue(
+      http_response.body(),
+      new TypeReference<Map<String, Object>>() {
+    });
+
     ApiResource response = new ApiResource((Map<String, Object>) formatted_response);
 
     return response;

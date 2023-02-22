@@ -3,25 +3,25 @@ package com.paymongo.entities;
 import java.util.Map;
 
 public class PaymentIntentEntity {
-	public String id;
-	public int amount;
-	public String capture_type;
-	public String client_key;
-	public String currency;
-	public String description;
-	public String last_payment_error;
-	public Boolean livemode;
-	public String metadata;
-	public Object next_action;
-	public Object payment_method;
-	public Object payment_method_allowed;
-	public Object payment_method_options;
-	public Object payments;
-	public String setup_future_usage;
-	public String statement_descriptor;
-	public String status;
-	public int created_at;
-	public int updated_at;
+  public String id;
+  public int amount;
+  public String capture_type;
+  public String client_key;
+  public String currency;
+  public String description;
+  public String last_payment_error;
+  public Boolean livemode;
+  public String metadata;
+  public Object next_action;
+  public Object payment_method;
+  public Object payment_method_allowed;
+  public Object payment_method_options;
+  public Object payments;
+  public String setup_future_usage;
+  public String statement_descriptor;
+  public String status;
+  public int created_at;
+  public int updated_at;
 
 	public PaymentIntentEntity(Map<String, Object> data) {
 		var attributes = (Map<String, Object>) data.get("attributes");

@@ -8,17 +8,19 @@ public class PaymentIntent extends BaseService {
 
   public static PaymentIntentEntity create(Object payload) {
     return (PaymentIntentEntity) request(
-        "PaymentIntentEntity",
-        "POST",
-        URI,
-        payload);
+      "PaymentIntentEntity",
+      "POST",
+      URI,
+      payload
+    );
   }
 
   public static PaymentIntentEntity retrieve(String id) {
     return (PaymentIntentEntity) request(
-        "PaymentIntentEntity",
-        "GET",
-        URI + "/" + id,
-        null);
+      "PaymentIntentEntity",
+      "GET",
+      URI + "/" + id,
+      null
+    );
   }
 }
