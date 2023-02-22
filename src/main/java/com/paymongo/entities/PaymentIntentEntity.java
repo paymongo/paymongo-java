@@ -1,9 +1,7 @@
 package main.java.com.paymongo.entities;
 
 import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class PaymentIntentEntity {
 	public String id;
 	public int amount;
