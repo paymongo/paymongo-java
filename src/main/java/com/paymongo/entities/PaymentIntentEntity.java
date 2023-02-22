@@ -23,27 +23,27 @@ public class PaymentIntentEntity {
   public int created_at;
   public int updated_at;
 
-	public PaymentIntentEntity(Map<String, Object> data) {
+  public PaymentIntentEntity(Map<String, Object> data) {
 		var attributes = (Map<String, Object>) data.get("attributes");
 
-		this.id = (String) data.get("id");
-		this.amount = (int) attributes.get("amount");
-		this.capture_type = (String) attributes.get("capture_type");
-		this.client_key = (String) attributes.get("client_key");
-		this.currency = (String) attributes.get("currency");
-		this.description = (String) attributes.get("description");
-		this.last_payment_error = (String) attributes.get("last_payment_error");
-		this.livemode = (Boolean) attributes.get("livemode");
-		this.metadata = (String) attributes.get("metadata");
-		this.next_action = attributes.get("next_action");
-		this.payment_method = (Object) attributes.get("payment_method");
-		this.payment_method_allowed = (Object) attributes.get("payment_method_allowed");
-		this.payment_method_options = attributes.get("payment_method_options");
-		this.payments = (Object) attributes.get("payments");
-		this.setup_future_usage = (String) attributes.get("setup_future_usage");
-		this.statement_descriptor = (String) attributes.get("statement_descriptor");
-		this.status = (String) attributes.get("status");
-		this.created_at = (int) attributes.get("created_at");
-		this.updated_at = (int) attributes.get("updated_at");
-	}
+    this.id = (String) data.get("id");
+    this.amount = (int) attributes.get("amount");
+    this.capture_type = (String) attributes.get("capture_type");
+    this.client_key = (String) attributes.get("client_key");
+    this.currency = (String) attributes.get("currency");
+    this.description = (String) attributes.get("description");
+    this.last_payment_error = (String) attributes.get("last_payment_error");
+    this.livemode = (Boolean) attributes.get("livemode");
+    this.metadata = (String) attributes.get("metadata");
+    this.next_action = attributes.get("next_action");
+    this.payment_method = (Object) attributes.get("payment_method");
+    this.payment_method_allowed = (Object) attributes.get("payment_method_allowed");
+    this.payment_method_options = attributes.get("payment_method_options");
+    this.payments = (Object) attributes.get("payments");
+    this.setup_future_usage = (String) attributes.get("setup_future_usage");
+    this.statement_descriptor = (String) attributes.get("statement_descriptor");
+    this.status = (String) attributes.get("status");
+    this.created_at = (int) attributes.get("created_at");
+    this.updated_at = (int) attributes.get("updated_at");
+  }
 }
