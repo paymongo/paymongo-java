@@ -1,4 +1,4 @@
-package main.java.com.paymongo;
+package com.paymongo;
 
 import java.util.Map;
 /**

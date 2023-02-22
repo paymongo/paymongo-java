@@ -1,4 +1,4 @@
-package main.java.com.paymongo;
+package com.paymongo;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;

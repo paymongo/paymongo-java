@@ -1,4 +1,4 @@
-package main.java.com.paymongo.entities;
+package com.paymongo.entities;
 
 import java.util.Map;
 

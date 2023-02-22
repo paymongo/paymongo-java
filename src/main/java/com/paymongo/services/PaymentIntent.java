@@ -1,6 +1,6 @@
-package main.java.com.paymongo.services;
+package com.paymongo.services;
 
-import main.java.com.paymongo.entities.PaymentIntentEntity;
+import com.paymongo.entities.PaymentIntentEntity;
 
 public class PaymentIntent extends BaseService {
 

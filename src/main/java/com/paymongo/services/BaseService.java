@@ -1,12 +1,12 @@
-package main.java.com.paymongo.services;
+package com.paymongo.services;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Map;
 
-import main.java.com.paymongo.ApiResource;
-import main.java.com.paymongo.PaymongoClient;
-import main.java.com.paymongo.entities.PaymentIntentEntity;
+import com.paymongo.ApiResource;
+import com.paymongo.PaymongoClient;
+import com.paymongo.entities.PaymentIntentEntity;
 
 /**
  * BaseService
