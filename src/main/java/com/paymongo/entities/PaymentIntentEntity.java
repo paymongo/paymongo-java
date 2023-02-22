@@ -24,7 +24,7 @@ public class PaymentIntentEntity {
   public int updated_at;
 
   public PaymentIntentEntity(Map<String, Object> data) {
-		var attributes = (Map<String, Object>) data.get("attributes");
+    var attributes = (Map<String, Object>) data.get("attributes");
 
     this.id = (String) data.get("id");
     this.amount = (int) attributes.get("amount");
