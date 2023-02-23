@@ -54,8 +54,8 @@ public class PaymongoExample {
     var payment_method = PaymentMethod.retrieve("pm_...");
 
     //Retrieve attributes
-    System.out.println(oayment_method.id);
-    System.out.println(oayment_method.type);
+    System.out.println(payment_method.id);
+    System.out.println(payment_method.type);
 
     Map<String, Object> params = new HashMap<>();
     params.put("email", "test@paymongo.com");
