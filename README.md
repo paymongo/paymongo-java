@@ -51,7 +51,7 @@ public class PaymongoExample {
     Paymongo.api_key = "sk_...";
 
     //Payment Method
-    var payment_method = PaymentMethod.retrieve("pm_hZyUmkd1o5Ym2VFeDvH2fCGQ");
+    var payment_method = PaymentMethod.retrieve("pm_...");
 
     //Retrieve attributes
     System.out.println(oayment_method.id);
