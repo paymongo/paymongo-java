@@ -11,7 +11,7 @@ public class PaymentIntentEntity {
   public String description;
   public String last_payment_error;
   public Boolean livemode;
-  public String metadata;
+  public Object metadata;
   public Object next_action;
   public Object payment_method;
   public Object payment_method_allowed;
@@ -34,7 +34,7 @@ public class PaymentIntentEntity {
     this.description = (String) attributes.get("description");
     this.last_payment_error = (String) attributes.get("last_payment_error");
     this.livemode = (Boolean) attributes.get("livemode");
-    this.metadata = (String) attributes.get("metadata");
+    this.metadata = attributes.get("metadata");
     this.next_action = attributes.get("next_action");
     this.payment_method = (Object) attributes.get("payment_method");
     this.payment_method_allowed = (Object) attributes.get("payment_method_allowed");

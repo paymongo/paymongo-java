@@ -89,6 +89,9 @@ public class PaymongoExample {
 
     PaymentIntent.capture("pi_...", params);
 
+    // Payment
+    PaymentMethod.retrieve("pay_...");
+
     // Refund
     Refund.retrieve("ref_...");
 
