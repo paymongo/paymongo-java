@@ -11,6 +11,7 @@ public class Payment extends BaseService {
       "PaymentEntity",
       "GET",
       URI + "/" + id,
-      null);
+      null
+    );
   }
 }
