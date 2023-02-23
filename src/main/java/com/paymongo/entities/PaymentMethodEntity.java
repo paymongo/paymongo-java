@@ -16,6 +16,7 @@ public class PaymentMethodEntity {
   public PaymentMethodEntity(Map<String, Object> data) {
     var attributes = (Map<String, Object>) data.get("attributes");
 
+    this.id = (String) data.get("id");
     this.billing = (Object) attributes.get("billing");
     this.details = (Object) attributes.get("details");
     this.livemode = (Boolean) attributes.get("livemode");
