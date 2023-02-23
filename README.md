@@ -42,8 +42,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import main.java.com.paymongo.Paymongo;
-import main.java.com.paymongo.services.PaymentIntent;
+import com.paymongo.Paymongo;
+import com.paymongo.services.PaymentIntent;
 
 public class PaymongoExample {
   public static void main(String[] args) {
