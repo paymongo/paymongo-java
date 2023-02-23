@@ -32,9 +32,9 @@ public class PaymentEntity {
   public PaymentEntity(Map<String, Object> data) {
     var attributes = (Map<String, Object>) data.get("attributes");
 
-	  this.id = (String) data.get("id");
-	  this.amount = (int) attributes.get("amount");
-	  this.access_url = (String) attributes.get("access_url");
+    this.id = (String) data.get("id");
+    this.amount = (int) attributes.get("amount");
+    this.access_url = (String) attributes.get("access_url");
 
     if (attributes.get("billing") != null) {
       this.billing = new BillingEntity((Map<String, Object>) attributes.get("billing"));
