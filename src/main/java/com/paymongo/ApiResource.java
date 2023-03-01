@@ -6,7 +6,6 @@ import java.util.Map;
  * ApiResource
  */
 public class ApiResource {
-
   public Object attributes;
   public Object data;
   public String id;

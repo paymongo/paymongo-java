@@ -3,7 +3,6 @@ package com.paymongo.services;
 import com.paymongo.entities.PaymentIntentEntity;
 
 public class PaymentIntent extends BaseService {
-
   public static final String URI = "payment_intents";
 
   public static PaymentIntentEntity attach(String id, Object payload) {

@@ -3,7 +3,6 @@ package com.paymongo.entities;
 import java.util.Map;
 
 public class BillingAddressEntity {
-
   public String city;
   public String country;
   public String line1;
