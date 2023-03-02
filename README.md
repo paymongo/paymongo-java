@@ -50,10 +50,10 @@ public class PaymongoExample {
     // Set api key config
     Paymongo.api_key = "sk_...";
 
-    //Payment Method
+    // Payment Method
     var payment_method = PaymentMethod.retrieve("pm_...");
 
-    //Retrieve attributes
+    // Retrieve attributes
     System.out.println(payment_method.id);
     System.out.println(payment_method.type);
 
