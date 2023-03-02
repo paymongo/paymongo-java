@@ -50,6 +50,21 @@ public class PaymongoExample {
     // Set api key config
     Paymongo.api_key = "sk_...";
 
+    // Payment Method
+    var payment_method = PaymentMethod.retrieve("pm_...");
+
+    // Retrieve attributes
+    System.out.println(payment_method.id);
+    System.out.println(payment_method.type);
+
+    Map<String, Object> params = new HashMap<>();
+    params.put("email", "test@paymongo.com");
+    params.put("name", "Pay Mongo");
+    params.put("phone", "09123456789");
+    params.put("type", "gcash");
+
+    PaymentMethod.create(params);
+
     // Payment Intent
     var payment_intent = PaymentIntent.retrieve("pi_...");
 

@@ -7,6 +7,7 @@ import java.util.Map;
 import com.paymongo.ApiResource;
 import com.paymongo.PaymongoClient;
 import com.paymongo.entities.PaymentIntentEntity;
+import com.paymongo.entities.PaymentMethodEntity;
 
 /**
  * BaseService
@@ -28,6 +29,8 @@ public class BaseService {
     switch (entity) {
       case "PaymentIntentEntity":
         return new PaymentIntentEntity((Map<String, Object>) api_resource.data);
+      case "PaymentMethodEntity":
+        return new PaymentMethodEntity((Map<String, Object>) api_resource.data);
     }
 
     return null;
