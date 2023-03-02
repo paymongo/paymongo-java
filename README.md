@@ -88,6 +88,16 @@ public class PaymongoExample {
     params.put("amount", payment_intent.amount);
 
     PaymentIntent.capture("pi_...", params);
+
+    // Refund
+    Refund.retrieve("ref_...");
+
+    Map<String, Object> params = new HashMap<>();
+    params.put("amount", 10000);
+    params.put("payment_id", "pay_...");
+    params.put("reason", "requested_by_customer");
+
+    Refund.create(params);
   }
 }
 
