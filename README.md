@@ -68,10 +68,6 @@ public class PaymongoExample {
     // Payment Intent
     var payment_intent = PaymentIntent.retrieve("pi_...");
 
-    // Retrieve attributes
-    System.out.println(payment_intent.id);
-
-    // Create Payment Intent
     Map<String, Object> params = new HashMap<>();
     params.put("amount", 10000);
     params.put("currency", "PHP");
@@ -79,6 +75,19 @@ public class PaymongoExample {
     params.put("payment_method_allowed", Arrays.asList("gcash"));
 
     PaymentIntent.create(params);
+
+    Map<String, Object> params = new HashMap<>();
+    params.put("payment_method", "pi_...");
+    params.put("return_url", "https://test/success");
+
+    PaymentIntent.attach("pi_...", params);
+
+    PaymentIntent.cancel("pi_...");
+
+    Map<String, Object> params = new HashMap<>();
+    params.put("amount", payment_intent.amount);
+
+    PaymentIntent.capture("pi_...", params);
   }
 }
 
