@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.paymongo.ApiResource;
 import com.paymongo.PaymongoClient;
+import com.paymongo.entities.CustomerEntity;
 import com.paymongo.entities.LinkEntity;
 import com.paymongo.entities.ListingEntity;
 import com.paymongo.entities.PaymentEntity;
@@ -43,6 +44,8 @@ public class BaseService {
 
   private static Object map_response(String entity, ApiResource api_resource) {
     switch (entity) {
+      case "CustomerEntity":
+        return new CustomerEntity((Map<String, Object>) api_resource.data);
       case "LinkEntity":
         return new LinkEntity((Map<String, Object>) api_resource.data);
       case "PaymentEntity":
