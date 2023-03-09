@@ -14,6 +14,7 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpRequest.BodyPublishers;
 import java.util.Base64;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * PaymongoClient
@@ -42,6 +43,10 @@ public class PaymongoClient {
   }
 
   private static HttpRequest build_request(String method, Object params, String uri) throws URISyntaxException {
+    if (method == "GET" && params != null) {
+      uri = appendUrlParams(params, uri);
+    }
+
     // By default HttpRequest request method is GET
     HttpRequest.Builder requestBuilder = HttpRequest.newBuilder()
         .uri(new URI(uri))
@@ -66,6 +71,15 @@ public class PaymongoClient {
 
     HttpRequest request = requestBuilder.build();
     return request;
+  }
+
+  private static final String appendUrlParams(Object params, String uri) {
+    String url_params = ((Map<String, Object>) params).entrySet()
+      .stream()
+      .map(entry -> entry.getKey() + "=" + entry.getValue())
+      .collect(Collectors.joining("&"));
+    
+    return uri + "?" + url_params;
   }
 
   private static final String getBasicAuthenticationHeader(String apiKey) {

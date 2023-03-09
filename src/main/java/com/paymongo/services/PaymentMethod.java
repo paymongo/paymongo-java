@@ -10,7 +10,8 @@ public class PaymentMethod extends BaseService {
       "PaymentMethodEntity",
       "POST",
       URI,
-      payload
+      payload,
+      false
     );
   }
 
@@ -19,7 +20,8 @@ public class PaymentMethod extends BaseService {
       "PaymentMethodEntity",
       "GET",
       URI + "/" + id,
-      null
+      null,
+      false
     );
   }
 }

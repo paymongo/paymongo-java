@@ -11,7 +11,8 @@ public class PaymentIntent extends BaseService {
       "PaymentIntentEntity",
       "POST",
       URI + "/" + id + "/attach",
-      payload
+      payload,
+      false
     );
   }
 
@@ -20,7 +21,8 @@ public class PaymentIntent extends BaseService {
       "PaymentIntentEntity",
       "POST",
       URI + "/" + id + "/cancel",
-      null
+      null,
+      false
     );
   }
 
@@ -29,7 +31,8 @@ public class PaymentIntent extends BaseService {
       "PaymentIntentEntity",
       "POST",
       URI + "/" + id + "/capture",
-      payload
+      payload,
+      false
     );
   }
 
@@ -38,7 +41,8 @@ public class PaymentIntent extends BaseService {
       "PaymentIntentEntity",
       "POST",
       URI,
-      payload
+      payload,
+      false
     );
   }
 
@@ -47,7 +51,8 @@ public class PaymentIntent extends BaseService {
       "PaymentIntentEntity",
       "GET",
       URI + "/" + id,
-      null
+      null,
+      false
     );
   }
 }

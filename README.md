@@ -92,3 +92,24 @@ public class PaymongoExample {
 }
 
 ```
+
+```java
+// Links
+Link.retrieve("link_...");
+
+Link.archive("link_...");
+
+Link.unarchive("link_...");
+
+Map<String, Object> params = new HashMap<>();
+params.put("amount", 10000);
+params.put("description", "link description");
+params.put("remarks", "link remarks");
+
+Link.create(params);
+
+Map<String, Object> params = new HashMap<>();
+params.put("reference_number", "1234abc");
+
+Link.all(params);
+```
