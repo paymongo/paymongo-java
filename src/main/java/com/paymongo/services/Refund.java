@@ -10,7 +10,8 @@ public class Refund extends BaseService {
       "RefundEntity",
       "POST",
       URI,
-      payload
+      payload,
+      false
     );
   }
 
@@ -19,7 +20,8 @@ public class Refund extends BaseService {
       "RefundEntity",
       "GET",
       URI + "/" + id,
-      null
+      null,
+      false
     );
   }
 }
