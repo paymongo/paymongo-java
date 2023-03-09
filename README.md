@@ -111,5 +111,5 @@ Link.create(params);
 Map<String, Object> params = new HashMap<>();
 params.put("reference_number", "1234abc");
 
-var links = Link.all(params);
+Link.all(params);
 ```
