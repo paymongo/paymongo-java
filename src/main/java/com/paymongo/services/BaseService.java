@@ -11,6 +11,7 @@ import com.paymongo.entities.LinkEntity;
 import com.paymongo.entities.ListingEntity;
 import com.paymongo.entities.PaymentIntentEntity;
 import com.paymongo.entities.PaymentMethodEntity;
+import com.paymongo.entities.RefundEntity;
 
 /**
  * BaseService
@@ -47,6 +48,8 @@ public class BaseService {
         return new PaymentIntentEntity((Map<String, Object>) api_resource.data);
       case "PaymentMethodEntity":
         return new PaymentMethodEntity((Map<String, Object>) api_resource.data);
+      case "RefundEntity":
+      return new RefundEntity((Map<String, Object>) api_resource.data);
     }
 
     return null;
