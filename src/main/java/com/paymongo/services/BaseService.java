@@ -19,6 +19,10 @@ import com.paymongo.entities.RefundEntity;
  * BaseService
  */
 public class BaseService {
+  public static Object request(String entity, String method, String path, Object payload) {
+    return request(entity, method, path, payload, false);
+  }
+
   public static Object request(String entity, String method, String path, Object payload, Boolean is_listing) {
     try {
       ApiResource api_resource = PaymongoClient.execute_request(method, payload, path);
