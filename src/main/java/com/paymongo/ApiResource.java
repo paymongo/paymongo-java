@@ -6,7 +6,6 @@ import java.util.Map;
  * ApiResource
  */
 public class ApiResource {
-
   public Object attributes;
   public Object data;
   public String id;
@@ -24,7 +23,7 @@ public class ApiResource {
     if (this.data instanceof Map) {
       if (((Map<String, Object>) data).containsKey("attributes")) {
         Object attributesObj = ((Map<String, Object>) data).get("attributes");
-        
+
         this.attributes = (Map<String, Object>) attributesObj;
         this.id = (String) ((Map<String, Object>) data).get("id");
       }
