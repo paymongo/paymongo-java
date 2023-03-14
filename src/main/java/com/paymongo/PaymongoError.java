@@ -8,20 +8,20 @@ public class PaymongoError {
   private String source;
 
   public PaymongoError(Map<String, Object> error) {
-      this.code = error.containsKey("code") ? error.get("code").toString() : null;
-      this.detail = error.get("detail").toString();
-      this.source = error.containsKey("source") ? error.get("source").toString() : null;
+    this.code = error.containsKey("code") ? error.get("code").toString() : null;
+    this.detail = error.get("detail").toString();
+    this.source = error.containsKey("source") ? error.get("source").toString() : null;
   }
 
   public String getCode() {
-      return code;
+    return code;
   }
 
   public String getDetail() {
-      return detail;
+    return detail;
   }
 
   public String getSource() {
-      return source;
+    return source;
   }
 }
