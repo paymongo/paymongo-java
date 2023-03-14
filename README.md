@@ -101,6 +101,26 @@ public class PaymongoExample {
     params.put("reason", "requested_by_customer");
 
     Refund.create(params);
+
+    // Customers
+    Map<String, Object> params = new HashMap<>();
+    params.put("default_device", "phone");
+    params.put("email", "test4@paymongo.com");
+    params.put("first_name", "Pay");
+    params.put("last_name", "Mongo");
+    params.put("phone", "+624123456784");
+
+    Customer.create(params);
+
+    Customer.retrieve("cus_...");
+
+    Map<String, Object> params = new HashMap<>();
+    params.put("first_name", "Pay_");
+    params.put("last_name", "Mongo_");
+
+    Customer.update("cus_...", params);
+
+    Customer.delete("cus_...");
   }
 }
 

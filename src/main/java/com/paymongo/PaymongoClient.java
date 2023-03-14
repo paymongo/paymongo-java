@@ -62,11 +62,24 @@ public class PaymongoClient {
       }
     }
 
+    String formatted_params = null;
+
     switch (method) {
+      case "DELETE":
+        requestBuilder.DELETE();
+        break;
+
       case "POST":
-        String formatted_params = String.format("{ \"data\": { \"attributes\": %s } }", params);
+        formatted_params = String.format("{ \"data\": { \"attributes\": %s } }", params);
         requestBuilder.POST(BodyPublishers.ofString(formatted_params));
         requestBuilder.header("Content-Type", "application/json");
+        break;
+
+      case "PUT":
+        formatted_params = String.format("{ \"data\": { \"attributes\": %s } }", params);
+        requestBuilder.PUT(BodyPublishers.ofString(formatted_params));
+        requestBuilder.header("Content-Type", "application/json");
+        break;
     }
 
     HttpRequest request = requestBuilder.build();
