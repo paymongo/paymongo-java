@@ -4,6 +4,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.paymongo.exceptions.AuthenticationException;
+import com.paymongo.exceptions.InvalidRequestException;
+import com.paymongo.exceptions.ResourceNotFoundException;
+import com.paymongo.exceptions.StandardException;
 
 import java.io.IOException;
 import java.net.URI;
@@ -21,7 +25,7 @@ import java.util.stream.Collectors;
  */
 public class PaymongoClient {
   public static ApiResource execute_request(String method, Object payload, String path)
-      throws URISyntaxException, IOException, InterruptedException {
+      throws URISyntaxException, IOException, InterruptedException, StandardException {
     String URI = String.format("%s/%s/%s", Paymongo.API_BASE_URL, Paymongo.API_VERSION, path);
 
     HttpClient client = HttpClient.newHttpClient();
@@ -36,6 +40,10 @@ public class PaymongoClient {
       http_response.body(),
       new TypeReference<Map<String, Object>>() {
     });
+
+    if (!is_successful(http_response)) {
+      handle_error(http_response, formatted_response);
+    }
 
     ApiResource response = new ApiResource((Map<String, Object>) formatted_response);
 
@@ -97,5 +105,24 @@ public class PaymongoClient {
 
   private static final String getBasicAuthenticationHeader(String apiKey) {
     return "Basic " + Base64.getEncoder().encodeToString(apiKey.getBytes());
+  }
+
+  private static void handle_error(HttpResponse<String> http_response, Map<String, Object> formatted_response) throws StandardException {
+    int status_code = http_response.statusCode();
+
+    switch (status_code) {
+      case 400:
+        throw new InvalidRequestException(formatted_response);
+      case 401:
+        throw new AuthenticationException(formatted_response);
+      case 404:
+        throw new ResourceNotFoundException(formatted_response);
+      default:
+        throw new StandardException(formatted_response);
+    }
+  }
+
+  private static final boolean is_successful(HttpResponse<String> http_response) {
+    return http_response.statusCode() == 200;
   }
 }

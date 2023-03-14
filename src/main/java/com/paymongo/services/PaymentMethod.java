@@ -1,11 +1,12 @@
 package com.paymongo.services;
 
 import com.paymongo.entities.PaymentMethodEntity;
+import com.paymongo.exceptions.StandardException;
 
 public class PaymentMethod extends BaseService {
   public static final String URI = "payment_methods";
 
-  public static PaymentMethodEntity create(Object payload) {
+  public static PaymentMethodEntity create(Object payload) throws StandardException {
     return (PaymentMethodEntity) request(
       "PaymentMethodEntity",
       "POST",
@@ -15,7 +16,7 @@ public class PaymentMethod extends BaseService {
     );
   }
 
-  public static PaymentMethodEntity retrieve(String id) {
+  public static PaymentMethodEntity retrieve(String id) throws StandardException {
     return (PaymentMethodEntity) request(
       "PaymentMethodEntity",
       "GET",

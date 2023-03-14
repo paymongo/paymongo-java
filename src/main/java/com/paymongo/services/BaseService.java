@@ -15,16 +15,17 @@ import com.paymongo.entities.PaymentIntentEntity;
 import com.paymongo.entities.PaymentMethodEntity;
 import com.paymongo.entities.RefundEntity;
 import com.paymongo.entities.WebhookEntity;
+import com.paymongo.exceptions.StandardException;
 
 /**
  * BaseService
  */
 public class BaseService {
-  public static Object request(String entity, String method, String path, Object payload) {
+  public static Object request(String entity, String method, String path, Object payload) throws StandardException {
     return request(entity, method, path, payload, false);
   }
 
-  public static Object request(String entity, String method, String path, Object payload, Boolean is_listing) {
+  public static Object request(String entity, String method, String path, Object payload, Boolean is_listing) throws StandardException {
     try {
       ApiResource api_resource = PaymongoClient.execute_request(method, payload, path);
 
