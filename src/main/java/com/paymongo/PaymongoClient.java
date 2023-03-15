@@ -41,8 +41,8 @@ public class PaymongoClient {
       new TypeReference<Map<String, Object>>() {
     });
 
-    if (!is_successful(http_response)) {
-      handle_error(http_response, formatted_response);
+    if (!isSuccessful(http_response)) {
+      handleError(http_response, formatted_response);
     }
 
     ApiResource response = new ApiResource((Map<String, Object>) formatted_response);
@@ -107,7 +107,7 @@ public class PaymongoClient {
     return "Basic " + Base64.getEncoder().encodeToString(apiKey.getBytes());
   }
 
-  private static void handle_error(HttpResponse<String> http_response, Map<String, Object> formatted_response) throws StandardException {
+  private static void handleError(HttpResponse<String> http_response, Map<String, Object> formatted_response) throws StandardException {
     int status_code = http_response.statusCode();
 
     switch (status_code) {
@@ -122,7 +122,7 @@ public class PaymongoClient {
     }
   }
 
-  private static final boolean is_successful(HttpResponse<String> http_response) {
+  private static final boolean isSuccessful(HttpResponse<String> http_response) {
     return http_response.statusCode() == 200;
   }
 }
