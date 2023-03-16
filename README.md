@@ -146,3 +146,26 @@ params.put("reference_number", "1234abc");
 
 Link.all(params);
 ```
+
+```java
+// Webhooks
+Webhook.retrieve("hook_...");
+
+Map<String, Object> params = new HashMap<>();
+params.put("events",  Arrays.asList("payment.refunded", "payment.refund.updated"));
+params.put("url", "http://localhost:3100/webhook");
+
+Webhook.create(params);
+
+Webhook.disable("hook_...");
+
+Webhook.enable("hook_...");
+
+Map<String, Object> params = new HashMap<>();
+params.put("events",  Arrays.asList("payment.refunded", "payment.refund.updated"));
+params.put("url", "http://localhost:3101/webhook");
+
+Webhook.update("hook_...", params);
+
+Webhook.all();
+```

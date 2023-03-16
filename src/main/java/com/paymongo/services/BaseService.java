@@ -14,6 +14,7 @@ import com.paymongo.entities.PaymentEntity;
 import com.paymongo.entities.PaymentIntentEntity;
 import com.paymongo.entities.PaymentMethodEntity;
 import com.paymongo.entities.RefundEntity;
+import com.paymongo.entities.WebhookEntity;
 
 /**
  * BaseService
@@ -59,7 +60,9 @@ public class BaseService {
       case "PaymentMethodEntity":
         return new PaymentMethodEntity((Map<String, Object>) api_resource.data);
       case "RefundEntity":
-      return new RefundEntity((Map<String, Object>) api_resource.data);
+        return new RefundEntity((Map<String, Object>) api_resource.data);
+      case "WebhookEntity":
+        return new WebhookEntity((Map<String, Object>) api_resource.data);
     }
 
     return null;
