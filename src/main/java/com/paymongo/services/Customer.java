@@ -1,11 +1,12 @@
 package com.paymongo.services;
 
 import com.paymongo.entities.CustomerEntity;
+import com.paymongo.exceptions.StandardException;
 
 public class Customer extends BaseService {
   public static final String URI = "customers";
 
-  public static CustomerEntity create(Object payload) {
+  public static CustomerEntity create(Object payload) throws StandardException {
     return (CustomerEntity) request(
       "CustomerEntity",
       "POST",
@@ -14,7 +15,7 @@ public class Customer extends BaseService {
     );
   }
 
-  public static CustomerEntity delete(String id) {
+  public static CustomerEntity delete(String id) throws StandardException {
     return (CustomerEntity) request(
       "CustomerEntity",
       "DELETE",
@@ -23,7 +24,7 @@ public class Customer extends BaseService {
     );
   }
 
-  public static CustomerEntity retrieve(String id) {
+  public static CustomerEntity retrieve(String id) throws StandardException {
     return (CustomerEntity) request(
       "CustomerEntity",
       "GET",
@@ -32,7 +33,7 @@ public class Customer extends BaseService {
     );
   }
 
-  public static CustomerEntity update(String id, Object payload) {
+  public static CustomerEntity update(String id, Object payload) throws StandardException {
     return (CustomerEntity) request(
       "CustomerEntity",
       "PUT",
