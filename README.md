@@ -169,3 +169,18 @@ Webhook.update("hook_...", params);
 
 Webhook.all();
 ```
+
+## Error handling
+
+```java
+try {
+  Paymongo.api_key = "sk_...";
+
+  var payment_intent = PaymentIntent.retrieve("pi_...");
+} catch (StandardException e) {
+  // Handle error
+  System.out.println(e.getErrors().get(0).getCode());
+  System.out.println(e.getErrors().get(0).getDetail());
+  System.out.println(e.getErrors().get(0).getSource());
+}
+```

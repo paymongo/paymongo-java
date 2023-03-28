@@ -2,11 +2,12 @@ package com.paymongo.services;
 
 import com.paymongo.entities.LinkEntity;
 import com.paymongo.entities.ListingEntity;
+import com.paymongo.exceptions.StandardException;
 
 public class Link extends BaseService {
   public static final String URI = "links";
 
-  public static ListingEntity all(Object payload) {
+  public static ListingEntity all(Object payload) throws StandardException {
     return (ListingEntity) request(
       "LinkEntity",
       "GET",
@@ -16,7 +17,7 @@ public class Link extends BaseService {
     );
   }
 
-  public static LinkEntity archive(String id) {
+  public static LinkEntity archive(String id) throws StandardException {
     return (LinkEntity) request(
       "LinkEntity",
       "POST",
@@ -26,7 +27,7 @@ public class Link extends BaseService {
     );
   }
 
-  public static LinkEntity create(Object payload) {
+  public static LinkEntity create(Object payload) throws StandardException {
     return (LinkEntity) request(
       "LinkEntity",
       "POST",
@@ -36,7 +37,7 @@ public class Link extends BaseService {
     );
   }
 
-  public static LinkEntity retrieve(String id) {
+  public static LinkEntity retrieve(String id) throws StandardException {
     return (LinkEntity) request(
       "LinkEntity",
       "GET",
@@ -46,7 +47,7 @@ public class Link extends BaseService {
     );
   }
 
-  public static LinkEntity unarchive(String id) {
+  public static LinkEntity unarchive(String id) throws StandardException {
     return (LinkEntity) request(
       "LinkEntity",
       "POST",

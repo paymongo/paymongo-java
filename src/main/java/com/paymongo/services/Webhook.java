@@ -2,11 +2,12 @@ package com.paymongo.services;
 
 import com.paymongo.entities.ListingEntity;
 import com.paymongo.entities.WebhookEntity;
+import com.paymongo.exceptions.StandardException;
 
 public class Webhook extends BaseService {
   public static final String URI = "webhooks";
 
-  public static ListingEntity all() {
+  public static ListingEntity all() throws StandardException {
     return (ListingEntity) request(
       "WebhookEntity",
       "GET",
@@ -16,7 +17,7 @@ public class Webhook extends BaseService {
     );
   }
 
-  public static WebhookEntity create(Object payload) {
+  public static WebhookEntity create(Object payload) throws StandardException {
     return (WebhookEntity) request(
       "WebhookEntity",
       "POST",
@@ -26,7 +27,7 @@ public class Webhook extends BaseService {
     );
   }
 
-  public static WebhookEntity disable(String id) {
+  public static WebhookEntity disable(String id) throws StandardException {
     return (WebhookEntity) request(
       "WebhookEntity",
       "POST",
@@ -36,7 +37,7 @@ public class Webhook extends BaseService {
     );
   }
 
-  public static WebhookEntity enable(String id) {
+  public static WebhookEntity enable(String id) throws StandardException {
     return (WebhookEntity) request(
       "WebhookEntity",
       "POST",
@@ -46,7 +47,7 @@ public class Webhook extends BaseService {
     );
   }
 
-  public static WebhookEntity retrieve(String id) {
+  public static WebhookEntity retrieve(String id) throws StandardException {
     return (WebhookEntity) request(
       "WebhookEntity",
       "GET",
@@ -56,7 +57,7 @@ public class Webhook extends BaseService {
     );
   }
 
-  public static WebhookEntity update(String id, Object payload) {
+  public static WebhookEntity update(String id, Object payload) throws StandardException {
     return (WebhookEntity) request(
       "WebhookEntity",
       "PUT",

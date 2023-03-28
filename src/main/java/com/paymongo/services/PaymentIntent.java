@@ -1,11 +1,12 @@
 package com.paymongo.services;
 
 import com.paymongo.entities.PaymentIntentEntity;
+import com.paymongo.exceptions.StandardException;
 
 public class PaymentIntent extends BaseService {
   public static final String URI = "payment_intents";
 
-  public static PaymentIntentEntity attach(String id, Object payload) {
+  public static PaymentIntentEntity attach(String id, Object payload) throws StandardException {
     return (PaymentIntentEntity) request(
       "PaymentIntentEntity",
       "POST",
@@ -15,7 +16,7 @@ public class PaymentIntent extends BaseService {
     );
   }
 
-  public static PaymentIntentEntity cancel(String id) {
+  public static PaymentIntentEntity cancel(String id) throws StandardException {
     return (PaymentIntentEntity) request(
       "PaymentIntentEntity",
       "POST",
@@ -25,7 +26,7 @@ public class PaymentIntent extends BaseService {
     );
   }
 
-  public static PaymentIntentEntity capture(String id, Object payload) {
+  public static PaymentIntentEntity capture(String id, Object payload) throws StandardException {
     return (PaymentIntentEntity) request(
       "PaymentIntentEntity",
       "POST",
@@ -35,7 +36,7 @@ public class PaymentIntent extends BaseService {
     );
   }
 
-  public static PaymentIntentEntity create(Object payload) {
+  public static PaymentIntentEntity create(Object payload) throws StandardException {
     return (PaymentIntentEntity) request(
       "PaymentIntentEntity",
       "POST",
@@ -45,7 +46,7 @@ public class PaymentIntent extends BaseService {
     );
   }
 
-  public static PaymentIntentEntity retrieve(String id) {
+  public static PaymentIntentEntity retrieve(String id) throws StandardException {
     return (PaymentIntentEntity) request(
       "PaymentIntentEntity",
       "GET",
